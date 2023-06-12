@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio JS y CSS</title>
+    <link rel="stylesheet" href="hoja de estilos.css">
+    
+    
+   
+</head>
+<body>
+    <main>
+    <section id="foto">
+        <h1>MOSTRAR FOTO</h1>
+        <!-- Aquí se mostrará la imagen -->
+      </section>
+    
+      <button id="boton-foto">Mostrar Imagen</button>
+
+      <!-- Aquí inicia la suma -->
+      
+      <section class="sum">
+      <h1>SUMA</h1>
+<div>
+    Ingrese el primer número: <br>
+    <input type="text" id="sumandoUno"> <br>
+    Ingrese el segundo número: <br>
+    <input type="text" id="sumandoDos">
+  </div>
+  El resultado de la suma es: <br>
+  <section id="suma" class="hidden"><!-- total --></section>
+  
+  <button id="boton-suma">Calcular Suma</button>
+    </section>
+
+<!-- Aquí inicia la resta -->
+<h1>Resta</h1>
+<section class="rest">
+      
+<div>
+ Ingrese el primer número: <br>
+<input type="text" id="restandoUno"> <br>
+Ingrese el segundo número: <br>
+<input type="text" id="restandoDos">
+</div>
+El resultado de la resta es: <br>
+<section id="resta" class="hidden"><!-- total --></section>
+              
+<button id="boton-resta">Calcular Resta</button>
+</section>
+
+<!-- Aquí inicia la multiplicación -->
+<section class="multiplicación">
+    <h1>MULTIPLICACIÓN</h1>
+      
+<div>
+Ingrese el primer número: <br>
+ <input type="text" id="multiUno"> <br>
+Ingrese el segundo número: <br>
+<input type="text" id="multiDos">
+</div>
+El resultado de la multiplicación es: <br>
+<section id="multi" class="hidden"><!-- total --></section>
+          
+<button id="boton-multi">Calcular Multiplicación</button>
+</section>
+
+<!-- Aquí inicia la división -->
+<section class="division">
+    
+<h1>DIVISIÓN</h1>
+      
+<div>
+Ingrese el primer número: <br>
+ 
+<input type="text" id="divUno"> <br>
+
+ Ingrese el segundo número: <br>
+<input type="text" id="diviDos">
+</div>
+El resultado de la división es: <br>
+<section id="divi" class="hidden"><!-- total --></section>
+          
+<button id="boton-divi">Calcular División</button>
+</section>
+
+</main>
+
+    <script> 
+// Obtener el elemento del botón
+const showImageButton = document.getElementById('boton-foto');
+
+// Obtener el elemento de la sección
+const mySection = document.getElementById('foto');
+
+// Crear un elemento de imagen
+const imageElement = document.createElement('img');
+imageElement.src = 'portada.jpg';
+
+// Agregar la clase "hide" para ocultar inicialmente la imagen
+imageElement.classList.add('hide');
+
+// Agregar el elemento de imagen a la sección
+mySection.appendChild(imageElement);
+
+// Agregar un evento al botón
+showImageButton.addEventListener('click', function() {
+  // Cambiar la clase de la imagen para mostrarla
+  imageElement.classList.toggle('hide');
+});
+
+// FUNCION DE SUMA
+function suma() {
+    let sumaSection = document.getElementById('suma');
+    let numeroUno = parseFloat(document.getElementById('sumandoUno').value);
+    let numeroDos = parseFloat(document.getElementById('sumandoDos').value);
+    let resultado = numeroUno + numeroDos;
+    
+
+    sumaSection.textContent = resultado;
+    sumaSection.classList.remove('hidden');
+  }
+  
+  let botonSuma = document.getElementById('boton-suma');
+  botonSuma.addEventListener('click', suma);
+
+    // FUNCION DE RESTA
+   function resta() {
+    let multiSection = document.getElementById('resta');
+    let numeroUno = parseFloat(document.getElementById('restandoUno').value);
+    let numeroDos = parseFloat(document.getElementById('restandoDos').value);
+    let resultado = numeroUno - numeroDos;
+   
+    multiSection.textContent = resultado;
+    multiSection.classList.remove('hidden');
+  }
+
+  let botonResta = document.getElementById('boton-resta');
+  botonResta.addEventListener('click', resta);
+
+   // FUNCION DE MULTIPLICACIÓN
+   function multiplicacion() {
+    let multiSection = document.getElementById('multi');
+    let numeroUno = parseFloat(document.getElementById('multiUno').value);
+    let numeroDos = parseFloat(document.getElementById('multiDos').value);
+    let resultado = numeroUno * numeroDos;
+  
+    multiSection.textContent = resultado;
+    multiSection.classList.remove('hidden');
+  }
+  
+  let botonMulti = document.getElementById('boton-multi');
+  botonMulti.addEventListener('click', multiplicacion);
+
+
+     // FUNCION DE DIVISIÓN
+     function division() {
+        let diviSection = document.getElementById('divi');
+        let numeroUno = parseFloat(document.getElementById('divUno').value);
+        let numeroDos = parseFloat(document.getElementById('diviDos').value);
+        let resultado = numeroUno / numeroDos;
+      
+        diviSection.textContent = resultado;
+        diviSection.classList.remove('hidden');
+      }
+      
+      let botonDivi = document.getElementById('boton-divi');
+      botonDivi.addEventListener('click', division);
+    </script>
+</body>
+</html>
